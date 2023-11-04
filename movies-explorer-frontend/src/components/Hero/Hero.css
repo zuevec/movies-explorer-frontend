@@ -72,8 +72,9 @@
   .hero__title {
     font-size: 30px;
     line-height: 38px;
-    margin-top: 250px;
+    margin-top: 240px;
     max-width: 310px;
+    letter-spacing: -0.04em;
   }
   .hero__caption {
     padding-top: 24px;

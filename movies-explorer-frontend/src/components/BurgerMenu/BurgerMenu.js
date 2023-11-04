@@ -6,7 +6,7 @@ import profileIcon from '../../images/profile-icon.svg';
 const BurgerMenu = ({ onClose, loggedIn }) => {
   const location = useLocation();
   return (
-    <div className={loggedIn ? 'burger' : 'burger_hide'}>
+    <div className={loggedIn ? 'burger' : 'burger burger-hide'}>
       <div className="burger__font">
         <div className="burger__container">
           <button
@@ -19,7 +19,7 @@ const BurgerMenu = ({ onClose, loggedIn }) => {
               to="/"
               className={
                 location.pathname === '/'
-                  ? 'burger__link_active'
+                  ? 'burger__link-active'
                   : 'burger__link'
               }
             >
@@ -29,7 +29,7 @@ const BurgerMenu = ({ onClose, loggedIn }) => {
               to="/movies"
               className={
                 location.pathname === '/movies'
-                  ? 'burger__link_active'
+                  ? 'burger__link-active'
                   : 'burger__link'
               }
             >
@@ -39,7 +39,7 @@ const BurgerMenu = ({ onClose, loggedIn }) => {
               to="/saved-movies"
               className={
                 location.pathname === '/saved-movies'
-                  ? 'burger__link_active'
+                  ? 'burger__link-active'
                   : 'burger__link'
               }
             >

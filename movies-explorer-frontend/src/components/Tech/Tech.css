@@ -111,4 +111,12 @@
     font-size: 11px;
     line-height: 16px;
   }
+
+  .tech__list-item {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+    text-align: center;
+  }
 }

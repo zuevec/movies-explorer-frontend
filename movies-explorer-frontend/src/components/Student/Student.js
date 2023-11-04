@@ -4,7 +4,7 @@ import photo from '../../images/me.jpg';
 
 const Student = () => {
   return (
-    <div className="student">
+    <section className="student">
       <h2 className="student__title">Студент</h2>
       <div className="student__content">
         <div className="student__info">
@@ -24,7 +24,7 @@ const Student = () => {
         </div>
         <img className="student__photo" src={photo} alt="Моё фото" />
       </div>
-    </div>
+    </section>
   );
 };
 

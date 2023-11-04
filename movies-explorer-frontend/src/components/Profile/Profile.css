@@ -1,7 +1,8 @@
 .profile {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 74px auto 70px;
+  margin: 74px auto 0;
   width: 410px;
   padding-bottom: 70px;
   box-sizing: border-box;
@@ -75,23 +76,28 @@
 
 @media screen and (max-width: 768px) {
   .profile {
-    margin: 236px auto 269px;
+    margin: 236px auto 0;
   }
   .profile__title {
-    margin-bottom: 80px;
+    margin-bottom: 79px;
   }
   .profile__control {
     margin-top: 194px;
+  }
+
+  .profile__form {
+    margin-top: 0;
   }
 }
 
 @media screen and (max-width: 410px) {
   .profile {
     width: 260px;
-    margin: 70px auto 40px;
+    margin: 64px auto 40px;
   }
   .profile__title {
     margin-top: 0;
+    margin-bottom: 65px;
   }
   .profile__control {
     margin-top: 363px;

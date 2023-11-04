@@ -9,7 +9,7 @@ const MoviesCardList = ({ isLoading = false, isSavedMoviesPage, movies }) => {
       {isLoading ? (
         <Preloader />
       ) : (
-        <ul className="cards__list">
+        <div className="cards__list">
           {movies.map((movie) => {
             return (
               <MoviesCard
@@ -19,11 +19,11 @@ const MoviesCardList = ({ isLoading = false, isSavedMoviesPage, movies }) => {
               />
             );
           })}
-        </ul>
+        </div>
       )}
       <button
         className={
-          !isSavedMoviesPage ? 'cards__button' : 'cards__button_hidden'
+          !isSavedMoviesPage ? 'cards__button' : 'cards__button-hidden'
         }
       >
         Ещё

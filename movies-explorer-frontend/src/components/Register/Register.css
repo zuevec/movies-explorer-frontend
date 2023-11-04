@@ -1,4 +1,5 @@
 .register__container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   width: 396px;
@@ -113,17 +114,22 @@
 .register__link:hover {
   opacity: 0.8;
 }
+@media screen and (max-width: 768px) {
+  .register__button {
+    margin-top: 120px;
+  }
+}
 
 @media screen and (max-width: 419px) {
   .register__container {
     min-width: 260px;
     width: calc(100% - 60px);
-    margin: 56 auto 0;
+    padding: 56px 0 0;
     padding-bottom: 30px;
   }
   .register__header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 75px;
   }
   .register__logo {
     margin-bottom: 50px;
@@ -132,7 +138,7 @@
     font-size: 12px;
     line-height: 15px;
     padding: 15px 0 15px;
-    margin-top: 157px;
+    margin-top: 212px;
     margin-bottom: 14px;
   }
   .register__signin {

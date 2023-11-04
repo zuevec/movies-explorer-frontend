@@ -93,5 +93,11 @@
   .portfolio__link {
     font-size: 18px;
     line-height: 28px;
+    padding-right: 5px;
+  }
+
+  .portfolio__link-image {
+    max-width: 11px;
+    width: 100%;
   }
 }

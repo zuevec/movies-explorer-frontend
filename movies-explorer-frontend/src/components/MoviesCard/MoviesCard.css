@@ -91,10 +91,22 @@
     height: 168px;
   }
   .card__description {
-    padding-top: 16px;
+    padding: 16px 14px 14px;
   }
   .card__name {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .card__duration {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0px;
+    padding: 0;
+  }
+
+  .card__button {
+    margin: 12px auto;
   }
 }

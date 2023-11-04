@@ -26,6 +26,7 @@ const Login = () => {
           required
           value={enteredValues.email || ''}
           onChange={handleChange}
+          placeholder="email"
         />
         <span className="login__error">{errors.email}</span>
         <label className="login__label" htmlFor="password">
