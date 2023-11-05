@@ -4,7 +4,7 @@ import MoreButton from '../MoreButton/MoreButton';
 
 const Hero = ({ loggedIn }) => {
   return (
-    <section className="hero">
+    <section className="hero" aria-label="Учебный проект">
       <div className="hero__container">
         <h1 className="hero__title">
           Учебный проект студента факультета Веб&#8209;разработки.

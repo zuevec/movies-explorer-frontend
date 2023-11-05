@@ -2,7 +2,7 @@ import './Filter.css';
 
 const Filter = () => {
   return (
-    <section className="filter">
+    <section className="filter" aria-label="Фильтр">
       <input type="checkbox" id="checkbox" className="filter__checkbox" />
       <label htmlFor="checkbox" className="filter__label">
         Короткометражки

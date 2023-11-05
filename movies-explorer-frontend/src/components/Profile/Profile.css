@@ -66,12 +66,38 @@
   cursor: pointer;
 }
 
+.profile__edit:hover {
+  opacity: 0.7;
+}
+
 .profile__logout {
   font-weight: 500;
   color: #ee3465;
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.profile__logout:hover {
+  opacity: 0.7;
+}
+
+.profile__save {
+  background-color: #4285f4;
+  border-radius: 3px;
+  border: none;
+  padding: 13px 0 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.profile__save:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {
@@ -101,5 +127,13 @@
   }
   .profile__control {
     margin-top: 363px;
+  }
+
+  .profile__save {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 15px 0 15px;
+    margin-top: 282px;
+    margin-bottom: 14px;
   }
 }

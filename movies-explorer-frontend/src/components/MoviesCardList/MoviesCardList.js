@@ -5,7 +5,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 const MoviesCardList = ({ isLoading = false, isSavedMoviesPage, movies }) => {
   return (
-    <section className="cards">
+    <section className="cards" aria-label="Фильмы">
       {isLoading ? (
         <Preloader />
       ) : (

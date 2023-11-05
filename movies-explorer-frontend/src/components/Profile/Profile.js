@@ -3,9 +3,11 @@ import './Profile.css';
 import Header from '../Header/Header';
 
 const Profile = ({ loggedIn }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('Дима');
+  const [email, setEmail] = useState('test@yandex.ru');
+  const [isShown, setIsShown] = useState(true);
 
+  const clickEditButton = () => setIsShown(!isShown);
   return (
     <>
       <Header loggedIn={loggedIn} />
@@ -40,10 +42,22 @@ const Profile = ({ loggedIn }) => {
             />
           </div>
         </form>
-        <div className="profile__control">
-          <button className="profile__edit">Редактировать</button>
-          <button className="profile__logout">Выйти из аккаунта</button>
-        </div>
+        {isShown && (
+          <div className="profile__control">
+            <button className="profile__edit" onClick={clickEditButton}>
+              Редактировать
+            </button>
+            <button className="profile__logout">Выйти из аккаунта</button>
+          </div>
+        )}
+
+        {!isShown && (
+          <div className="profile__control">
+            <button className="profile__save" type="submit">
+              Сохранить
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

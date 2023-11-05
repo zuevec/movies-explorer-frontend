@@ -66,6 +66,10 @@
   margin-right: 20px;
 }
 
+.navigation__movies-link:hover {
+  opacity: 0.7;
+}
+
 .navigation__movies-link:last-of-type {
   margin-right: 0;
 }
