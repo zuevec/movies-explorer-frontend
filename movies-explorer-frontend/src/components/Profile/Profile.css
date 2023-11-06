@@ -119,7 +119,7 @@
 @media screen and (max-width: 410px) {
   .profile {
     width: 260px;
-    margin: 64px auto 40px;
+    margin: 64px auto 0;
   }
   .profile__title {
     margin-top: 0;

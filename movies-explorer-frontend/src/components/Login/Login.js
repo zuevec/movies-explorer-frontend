@@ -37,6 +37,7 @@ const Login = () => {
           type="password"
           id="password"
           name="password"
+          placeholder="••••••••••••••"
           required
           value={enteredValues.password || ''}
           onChange={handleChange}

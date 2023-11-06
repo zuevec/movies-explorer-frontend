@@ -1,4 +1,4 @@
-.register__container {
+.register {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@
 }
 
 @media screen and (max-width: 419px) {
-  .register__container {
+  .register {
     min-width: 260px;
     width: calc(100% - 60px);
     padding: 56px 0 0;

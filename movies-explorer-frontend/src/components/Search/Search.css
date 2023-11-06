@@ -1,5 +1,8 @@
 .search {
+  max-width: 1280px;
+  margin: auto;
   padding: 70px 70px 10px;
+  box-sizing: border-box;
 }
 
 .search__form {

@@ -1,10 +1,11 @@
 import React from 'react';
 import './Hero.css';
+import Header from '../Header/Header';
 import MoreButton from '../MoreButton/MoreButton';
 
 const Hero = ({ loggedIn }) => {
   return (
-    <section className="hero" aria-label="Учебный проект">
+    <section className="hero">
       <div className="hero__container">
         <h1 className="hero__title">
           Учебный проект студента факультета Веб&#8209;разработки.
