@@ -64,7 +64,7 @@
   opacity: 0.8;
 }
 
-.burger__link_active {
+.burger__link-active {
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
@@ -74,7 +74,7 @@
   padding-bottom: 4px;
 }
 
-.burger__link_active:hover {
+.burger__link-active:hover {
   opacity: 0.8;
 }
 
@@ -106,7 +106,7 @@
   background: #313131;
 }
 
-.burger_hide {
+.burger-hide {
   display: none;
 }
 

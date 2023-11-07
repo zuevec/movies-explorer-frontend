@@ -66,22 +66,26 @@
   margin-right: 20px;
 }
 
+.navigation__movies-link:hover {
+  opacity: 0.7;
+}
+
 .navigation__movies-link:last-of-type {
   margin-right: 0;
 }
 
-.navigation__movies-link_active {
+.navigation__movies-link-active {
   text-decoration: none;
   color: #ffffff;
   font-weight: 500;
   margin-right: 20px;
 }
 
-.navigation__movies-link_active:last-of-type {
+.navigation__movies-link-active:last-of-type {
   margin-right: 0;
 }
 
-.navigation__button_account {
+.navigation__button-account {
   max-width: 100px;
   width: 100%;
   display: flex;
@@ -98,17 +102,17 @@
   text-decoration: none;
 }
 
-.navigation__button_account:hover {
+.navigation__button-account:hover {
   opacity: 0.8;
 }
 
-.navigation__button_image {
+.navigation__button-image {
   background: #0f4157;
   border-radius: 6px;
   padding: 9.5px;
 }
 
-.navigation__button_image-grey {
+.navigation__button-image-grey {
   background: #313131;
 }
 
@@ -133,7 +137,7 @@
   }
 
   .navigation__movies,
-  .navigation__button_account {
+  .navigation__button-account {
     display: none;
   }
   .navigation__burger-btn {
@@ -142,6 +146,11 @@
 }
 
 @media screen and (max-width: 320px) {
+  .navigation__burger-btn {
+    width: 30px;
+    margin-right: 10px;
+  }
+
   .navigation__link {
     margin-right: 14px;
     font-size: 10px;

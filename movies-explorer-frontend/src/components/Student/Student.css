@@ -1,6 +1,14 @@
 .student {
   background-color: #202020;
+  width: 100%;
+}
+
+.student__container {
+  max-width: 1280px;
+  width: 100%;
+  margin: auto;
   padding: 110px 70px 100px 70px;
+  box-sizing: border-box;
 }
 
 .student__title {
@@ -82,7 +90,7 @@
 }
 
 @media screen and (max-width: 830px) {
-  .student {
+  .student__container {
     padding: 90px 50px 80px 50px;
   }
 
@@ -111,7 +119,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .student {
+  .student__container {
     padding: 70px 14px 70px 14px;
   }
   .student__content {

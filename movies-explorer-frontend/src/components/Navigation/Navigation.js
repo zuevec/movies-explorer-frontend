@@ -19,7 +19,7 @@ const Navigation = ({ loggedIn }) => {
               to="/movies"
               className={
                 location.pathname === '/movies'
-                  ? 'navigation__movies-link_active'
+                  ? 'navigation__movies-link-active'
                   : 'navigation__movies-link'
               }
             >
@@ -29,7 +29,7 @@ const Navigation = ({ loggedIn }) => {
               to="/saved-movies"
               className={
                 location.pathname === '/saved-movies'
-                  ? 'navigation__movies-link_active'
+                  ? 'navigation__movies-link-active'
                   : 'navigation__movies-link'
               }
             >
@@ -37,15 +37,15 @@ const Navigation = ({ loggedIn }) => {
             </Link>
           </div>
 
-          <Link className="navigation__button_account" to="/profile">
+          <Link className="navigation__button-account" to="/profile">
             Аккаунт{' '}
             <img
               src={profileIcon}
               alt="Иконка кнопки профиля"
               className={
                 location.pathname === '/'
-                  ? 'navigation__button_image'
-                  : 'navigation__button_image navigation__button_image-grey'
+                  ? 'navigation__button-image'
+                  : 'navigation__button-image navigation__button-image-grey'
               }
             />
           </Link>

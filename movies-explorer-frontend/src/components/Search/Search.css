@@ -1,5 +1,8 @@
 .search {
+  max-width: 1280px;
+  margin: auto;
   padding: 70px 70px 10px;
+  box-sizing: border-box;
 }
 
 .search__form {
@@ -55,14 +58,19 @@
 
 @media screen and (max-width: 400px) {
   .search {
-    padding: 80px 14px 0;
+    padding: 62px 14px 0;
   }
   .search__form {
     max-height: 56px;
     margin-bottom: 30px;
+    padding: 20px 6px 20px 12px;
+  }
+
+  .search__input {
+    width: calc(100% - 85px);
   }
   .search__line {
-    margin-top: 44px;
+    margin-top: 63px;
   }
 
   .search__button {

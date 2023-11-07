@@ -7,7 +7,7 @@ import useForm from '../../hooks/useForm';
 const Register = () => {
   const { enteredValues, errors, handleChange } = useForm();
   return (
-    <section className="register__container">
+    <section className="register">
       <div className="register__header">
         <Link to="/">
           <img className="register__logo" alt="Логотип" src={logo} />

@@ -1,17 +1,22 @@
 .hero {
+  max-width: 100%;
   position: relative;
   background: #073042;
   box-sizing: border-box;
+}
+
+.hero__container {
+  max-width: 1280px;
+  width: 100%;
+  padding: 75px 0 75px;
   overflow: hidden;
   background-image: url('../../images/landing-logo.svg');
   background-repeat: no-repeat;
   background-position: top 150px right 70px;
   background-size: 310px 304px;
   text-align: left;
-}
-
-.hero__container {
-  padding: 75px 0 75px;
+  margin: auto;
+  box-sizing: border-box;
 }
 
 .hero__title {
@@ -38,8 +43,8 @@
 }
 
 @media screen and (max-width: 830px) {
-  .hero {
-    background-position: top 214px left 50%;
+  .hero__container {
+    background-position: top 140px left 50%;
     text-align: center;
   }
   .hero__container {
@@ -62,18 +67,17 @@
 }
 
 @media screen and (max-width: 580px) {
-  .hero {
-    background-position: top 144px left 50%;
-    background-size: 210px 206px;
-  }
   .hero__container {
+    background-position: top 70px left 50%;
+    background-size: 210px 206px;
     padding-bottom: 30px;
   }
   .hero__title {
     font-size: 30px;
     line-height: 38px;
-    margin-top: 250px;
+    margin-top: 240px;
     max-width: 310px;
+    letter-spacing: -0.04em;
   }
   .hero__caption {
     padding-top: 24px;

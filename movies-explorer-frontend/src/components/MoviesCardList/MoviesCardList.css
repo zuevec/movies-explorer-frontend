@@ -1,6 +1,9 @@
 .cards {
+  max-width: 1280px;
+  margin: auto;
   display: block;
-  margin: 0 70px 80px;
+  padding: 0 70px 80px;
+  box-sizing: border-box;
 }
 
 .cards__list {
@@ -26,7 +29,7 @@
   transition: 0.4s;
 }
 
-.cards__button_hidden {
+.cards__button-hidden {
   display: none;
 }
 
@@ -49,7 +52,7 @@
   .cards__list {
     margin-top: 10px;
     padding-top: 40px;
-    row-gap: 39px;
+    row-gap: 16px;
     padding-bottom: 47px;
   }
 }
