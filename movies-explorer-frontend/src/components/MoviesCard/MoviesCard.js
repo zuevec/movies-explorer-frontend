@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './MoviesCard.css';
 import { convertMinToHours } from '../../utils/utils';
 import useScreenWidth from '../../hooks/useScreenWidth';
-import { checkSavedCard } from '../../utils/utils';
-import { getSavedMovies } from '../../utils/MainApi';
 
 const MoviesCard = ({ isSavedMoviesPage, movie, changeSave, saved }) => {
   const screenWidth = useScreenWidth();
@@ -52,7 +50,15 @@ const MoviesCard = ({ isSavedMoviesPage, movie, changeSave, saved }) => {
         />
       )}
 
-      {!isSavedMoviesPage && saved && (
+      {!isSavedMoviesPage && saved && isMobile && (
+        <button
+          className="card__button card__button_saved"
+          type="button"
+          onClick={changeSaveCard}
+        />
+      )}
+
+      {!isSavedMoviesPage && saved && !isMobile && (
         <button
           className="card__button card__button_saved"
           type="button"

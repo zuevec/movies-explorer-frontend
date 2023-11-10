@@ -31,7 +31,7 @@ const Search = ({
       const searchValue = localStorage.getItem('movieSearch');
       enteredValues.searchRequest = searchValue;
     }
-  }, [location]);
+  }, [location, enteredValues]);
 
   return (
     <section className="search" aria-label="Поиск">

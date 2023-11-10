@@ -63,7 +63,7 @@ const SavedMovies = ({ loggedIn, savedMovies, isLoading, changeSave }) => {
       const moviesList = filterMovies(savedMovies, searchQuery, shortMovies);
       setShowedMovies(moviesList);
     }
-  }, [savedMovies, location, shortMovies]);
+  }, [savedMovies, location, searchQuery, shortMovies]);
 
   useEffect(() => {
     setFilteredMovies(savedMovies);

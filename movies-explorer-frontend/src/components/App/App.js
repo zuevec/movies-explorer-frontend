@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -31,10 +31,6 @@ function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    handleTokenCheck();
-  }, [isLoggedIn]);
 
   /* Пользователь */
   /* Регистрация */
@@ -115,7 +111,7 @@ function App() {
 
   /* Проверка токена */
 
-  const handleTokenCheck = () => {
+  const handleTokenCheck = useCallback(() => {
     const path = location.pathname;
     const jwt = localStorage.getItem('jwt');
     getUserInfo(jwt)
@@ -131,7 +127,11 @@ function App() {
         setSavedMovies(movies);
       })
       .catch((err) => console.log(err));
-  };
+  }, [location, navigate]);
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, [isLoggedIn, handleTokenCheck]);
 
   // Сохранение и удаление фильмов
   const changeSaveMovie = (movie) => {
