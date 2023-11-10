@@ -1,6 +1,5 @@
 import React from 'react';
 import './Hero.css';
-import Header from '../Header/Header';
 import MoreButton from '../MoreButton/MoreButton';
 
 const Hero = ({ loggedIn }) => {
