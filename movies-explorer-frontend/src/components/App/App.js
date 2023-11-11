@@ -33,6 +33,29 @@ function App() {
   const location = useLocation();
 
   /* Пользователь */
+
+  const handleTokenCheck = useCallback(() => {
+    const path = location.pathname;
+    const jwt = localStorage.getItem('jwt');
+    getUserInfo(jwt)
+      .then((data) => {
+        setIsLoggedIn(true);
+        setCurrentUser(data);
+        setUserMessageError('');
+        navigate(path);
+      })
+      .catch((err) => console.log(err));
+    getSavedMovies(jwt)
+      .then((movies) => {
+        setSavedMovies(movies);
+      })
+      .catch((err) => console.log(err));
+  }, [location, navigate]);
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, [isLoggedIn]);
+
   /* Регистрация */
   const handleRegistration = async ({ name, email, password }) => {
     return registerUser({ name, email, password })
@@ -110,28 +133,6 @@ function App() {
   };
 
   /* Проверка токена */
-
-  const handleTokenCheck = useCallback(() => {
-    const path = location.pathname;
-    const jwt = localStorage.getItem('jwt');
-    getUserInfo(jwt)
-      .then((data) => {
-        setIsLoggedIn(true);
-        setCurrentUser(data);
-        setUserMessageError('');
-        navigate(path);
-      })
-      .catch((err) => console.log(err));
-    getSavedMovies(jwt)
-      .then((movies) => {
-        setSavedMovies(movies);
-      })
-      .catch((err) => console.log(err));
-  }, [location, navigate]);
-
-  useEffect(() => {
-    handleTokenCheck();
-  }, [isLoggedIn, handleTokenCheck]);
 
   // Сохранение и удаление фильмов
   const changeSaveMovie = (movie) => {
