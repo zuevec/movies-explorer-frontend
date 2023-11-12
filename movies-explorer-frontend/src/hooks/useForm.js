@@ -7,16 +7,31 @@ const useForm = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
+    const useemailRegEForm = /\S+@\S+\.\S+/;
 
     setEnteredValues({
       ...enteredValues,
       [name]: value,
     });
 
-    setErrors({
-      ...errors,
-      [name]: event.target.validationMessage,
-    });
+    if (name === 'email') {
+      if (!useemailRegEForm.test(value)) {
+        setErrors({
+          ...errors,
+          [name]: 'Не валидный email',
+        });
+      } else {
+        setErrors({
+          ...errors,
+          [name]: event.target.validationMessage,
+        });
+      }
+    } else {
+      setErrors({
+        ...errors,
+        [name]: event.target.validationMessage,
+      });
+    }
 
     setIsValid(event.target.closest('.form').checkValidity());
   };

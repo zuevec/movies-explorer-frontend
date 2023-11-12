@@ -116,7 +116,7 @@ function App() {
       })
       .catch((error) => {
         console.log(error);
-        setUserMessageError('Приобновлении профиля произошла ошибка');
+        setUserMessageError('При обновлении профиля произошла ошибка');
       })
       .finally(() => {
         setIsLoading(false);
@@ -235,20 +235,25 @@ function App() {
             exact
             path="/signup"
             element={
-              <Register
-                onRegister={handleRegistration}
-                userMessageError={userMessageError}
-              />
+              <ProtectedRoute loggedIn={!isLoggedIn}>
+                <Register
+                  onRegister={handleRegistration}
+                  userMessageError={userMessageError}
+                />
+              </ProtectedRoute>
             }
           ></Route>
           <Route
             exact
             path="/signin"
+            loggedIn={isLoggedIn}
             element={
-              <Login
-                onLogin={handleAuthorization}
-                userMessageError={userMessageError}
-              />
+              <ProtectedRoute loggedIn={!isLoggedIn}>
+                <Login
+                  onLogin={handleAuthorization}
+                  userMessageError={userMessageError}
+                />
+              </ProtectedRoute>
             }
           ></Route>
           <Route exact path="*" element={<NotFoundPage />}></Route>

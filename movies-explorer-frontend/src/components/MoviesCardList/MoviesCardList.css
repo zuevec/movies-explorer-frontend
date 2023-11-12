@@ -4,6 +4,7 @@
   display: block;
   padding: 0 70px 80px;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .cards__list {

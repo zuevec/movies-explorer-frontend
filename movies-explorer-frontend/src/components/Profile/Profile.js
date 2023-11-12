@@ -15,10 +15,16 @@ const Profile = ({
   const clickEditButton = () => setIsShown(!isShown);
 
   const currentUser = useContext(CurrentUserContext);
-  const { enteredValues, handleChange, resetForm, isValid } = useForm();
+  const { enteredValues, handleChange, resetForm, errors, isValid } = useForm();
+
+  let wrong =
+    !isValid ||
+    (currentUser.name === enteredValues.name &&
+      currentUser.email === enteredValues.email);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    wrong = true;
     onUpdateUser({
       name: enteredValues.name,
       email: enteredValues.email,
@@ -30,10 +36,6 @@ const Profile = ({
     currentUser ? resetForm(currentUser) : resetForm();
   }, [currentUser, resetForm]);
 
-  const wrong =
-    !isValid ||
-    (currentUser.name === enteredValues.name &&
-      currentUser.email === enteredValues.email);
   return (
     <>
       <Header loggedIn={loggedIn} />
@@ -49,6 +51,7 @@ const Profile = ({
               onChange={handleChange}
               className="profile__input"
               required
+              disabled={isShown}
               placeholder="Имя"
             />
           </div>
@@ -59,19 +62,20 @@ const Profile = ({
               type="email"
               name="email"
               value={enteredValues.email || ''}
-              onChange={handleChange}
+              onInput={handleChange}
               className="profile__input"
               required
+              disabled={isShown}
               placeholder="pochta@yandex.ru"
             />
           </div>
 
           <div className="profile__control">
-            {userMessage ? (
-              <span>{userMessage}</span>
-            ) : (
-              <span className="profile__error">{userMessageError}</span>
-            )}
+            <span className="profile__error">{errors.email}</span>
+            <span className="profile__error">{errors.name}</span>
+            <span className="profile__error">{userMessage}</span>
+
+            <span className="profile__error">{userMessageError}</span>
 
             {isShown && (
               <>

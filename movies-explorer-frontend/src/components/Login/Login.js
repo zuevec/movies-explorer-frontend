@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import useForm from '../../hooks/useForm';
 import logo from '../../images/logo.svg';
@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 const Login = ({ onLogin, userMessageError }) => {
   const { enteredValues, errors, handleChange, isValid } = useForm();
+  const [isShown, setIsShown] = useState(true);
+  const clickRegButton = () => setIsShown(!isShown);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,6 +15,7 @@ const Login = ({ onLogin, userMessageError }) => {
       return;
     }
     onLogin(enteredValues);
+    setIsShown(true);
   };
   return (
     <div className="login__container">
@@ -52,7 +55,12 @@ const Login = ({ onLogin, userMessageError }) => {
         />
         <span className="login__error">{errors.password}</span>
         <span className="login__error">{userMessageError}</span>
-        <button className="login__button" type="submit" disabled={!isValid}>
+        <button
+          className="login__button"
+          onClick={clickRegButton}
+          type="submit"
+          disabled={!isValid && isShown}
+        >
           Войти
         </button>
       </form>

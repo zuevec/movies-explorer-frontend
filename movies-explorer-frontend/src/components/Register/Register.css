@@ -95,6 +95,10 @@
   opacity: 0.8;
 }
 
+.register__button:disabled {
+  cursor: not-allowed;
+}
+
 .register__signin {
   font-weight: 400;
   font-size: 14px;

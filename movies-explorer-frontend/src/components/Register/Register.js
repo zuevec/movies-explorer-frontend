@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
@@ -6,10 +6,15 @@ import useForm from '../../hooks/useForm';
 
 const Register = ({ onRegister, userMessageError }) => {
   const { enteredValues, errors, handleChange, isValid } = useForm();
+  const [isShown, setIsShown] = useState(true);
+  const clickRegButton = () => setIsShown(!isShown);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onRegister(enteredValues);
+    setIsShown(true);
   };
+
   return (
     <section className="register">
       <div className="register__header">
@@ -64,7 +69,12 @@ const Register = ({ onRegister, userMessageError }) => {
         />
         <span className="register__error">{errors.password}</span>
         <span className="register__error">{userMessageError}</span>
-        <button className="register__button" type="submit" disabled={!isValid}>
+        <button
+          onClick={clickRegButton}
+          className="register__button"
+          type="submit"
+          disabled={!isValid && isShown}
+        >
           Зарегистрироваться
         </button>
       </form>
