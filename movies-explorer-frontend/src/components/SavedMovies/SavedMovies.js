@@ -56,7 +56,6 @@ const SavedMovies = ({ loggedIn, savedMovies, isLoading, changeSave }) => {
 
   useEffect(() => {
     if (localStorage.getItem('shortSavedMovies') === 'true') {
-      setShortMovies(true);
       setShowedMovies(filterShorts(savedMovies));
     } else {
       setShortMovies(false);

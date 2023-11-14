@@ -40,7 +40,6 @@ function App() {
     getUserInfo(jwt)
       .then((data) => {
         setIsLoggedIn(true);
-        setCurrentUser(data);
         setUserMessageError('');
         navigate(path);
       })
@@ -78,18 +77,6 @@ function App() {
         setIsLoggedIn(true);
         localStorage.setItem('jwt', data.token);
         navigate('/movies');
-        Promise.all([getUserInfo(data.token), getSavedMovies(data.token)])
-          .then(([userInfo, userMovies]) => {
-            setCurrentUser(userInfo);
-            localStorage.setItem('savedMovies', JSON.stringify(userMovies));
-            setSavedMovies(userMovies);
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-          .finally(() => {
-            setIsLoading(false);
-          });
       })
       .catch((error) => {
         console.log(error);
