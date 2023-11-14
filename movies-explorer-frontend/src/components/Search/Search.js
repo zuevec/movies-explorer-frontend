@@ -10,9 +10,6 @@ const Search = ({
   isSavedMoviesPage,
   shortMovies,
 }) => {
-
- 
-  
   const location = useLocation();
   const { enteredValues, handleChange, resetForm, isFormValid } = useForm();
 
