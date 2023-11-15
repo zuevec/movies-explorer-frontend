@@ -36,7 +36,6 @@ const useForm = () => {
     }
 
     setIsValid(event.target.closest('.form').checkValidity());
-    console.log(isValid)
   };
 
   const resetForm = useCallback(
