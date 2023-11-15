@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import useForm from '../../hooks/useForm';
 
-const Register = () => {
-  const { enteredValues, errors, handleChange } = useForm();
+const Register = ({ onRegister, userMessageError }) => {
+  const { enteredValues, errors, handleChange, resetForm, isValid } = useForm();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onRegister(enteredValues);
+    resetForm();
+  };
+
   return (
     <section className="register">
       <div className="register__header">
@@ -14,7 +21,7 @@ const Register = () => {
         </Link>
         <h1 className="register__title">Добро пожаловать!</h1>
       </div>
-      <form className="register__form">
+      <form className="register__form form" onSubmit={handleSubmit}>
         <label className="register__label" htmlFor="name">
           Имя
         </label>
@@ -40,6 +47,7 @@ const Register = () => {
           id="email"
           name="email"
           required
+          pattern='[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,3}'
           value={enteredValues.email || ''}
           onChange={handleChange}
           placeholder="E-mail"
@@ -59,7 +67,12 @@ const Register = () => {
           placeholder="Пароль"
         />
         <span className="register__error">{errors.password}</span>
-        <button className="register__button" type="submit">
+        <span className="register__error">{userMessageError}</span>
+        <button
+          className="register__button"
+          type="submit"
+          disabled={!isValid}
+        >
           Зарегистрироваться
         </button>
       </form>

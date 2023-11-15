@@ -37,6 +37,9 @@
   position: absolute;
   bottom: 60px;
   transition: 0.4s;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .page__link:hover {

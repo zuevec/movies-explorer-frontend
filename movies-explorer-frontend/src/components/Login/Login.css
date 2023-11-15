@@ -90,6 +90,10 @@
   opacity: 0.8;
 }
 
+.login__button:disabled {
+  cursor: not-allowed;
+}
+
 .login__register {
   font-weight: 400;
   font-size: 14px;

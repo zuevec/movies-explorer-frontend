@@ -100,6 +100,14 @@
   opacity: 0.8;
 }
 
+.profile__error {
+  color: #ee3465;
+}
+
+.profile__save:disabled {
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 768px) {
   .profile {
     margin: 236px auto 0;

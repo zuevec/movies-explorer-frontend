@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import useForm from '../../hooks/useForm';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
-  const { enteredValues, errors, handleChange } = useForm();
+const Login = ({ onLogin, userMessageError }) => {
+  const { enteredValues, errors, handleChange, resetForm, isValid } = useForm();
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!enteredValues.email || !enteredValues.password) {
+      return;
+    }
+    onLogin(enteredValues);
+    resetForm();
+  };
   return (
     <div className="login__container">
       <div className="login__header">
@@ -14,7 +25,7 @@ const Login = () => {
         </Link>
         <h1 className="login__title">Рады видеть!</h1>
       </div>
-      <form className="login__form">
+      <form className="login__form form" onSubmit={handleSubmit}>
         <label className="login__label" htmlFor="email">
           E-mail
         </label>
@@ -24,6 +35,7 @@ const Login = () => {
           id="email"
           name="email"
           required
+          pattern='[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,3}'
           value={enteredValues.email || ''}
           onChange={handleChange}
           placeholder="email"
@@ -43,7 +55,13 @@ const Login = () => {
           onChange={handleChange}
         />
         <span className="login__error">{errors.password}</span>
-        <button className="login__button" type="submit">
+        <span className="login__error">{userMessageError}</span>
+        <button
+          className="login__button"
+
+          type="submit"
+          disabled={!isValid}
+        >
           Войти
         </button>
       </form>

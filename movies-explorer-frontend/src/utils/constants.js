@@ -1,0 +1,8 @@
+export const TABLET_SCREEN_MOVIES_SUM = 12;
+export const MIDDLE_SCREEN_MOVIES_SUM = 8;
+export const MOBILE_SCREEN_MOVIES_SUM = 5;
+export const MORE_MOVIES_TABLET_SCREEN_MOVIES_SUM = 3;
+export const MORE_MOVIES_MOBILE_SCREEN_MOVIES_SUM = 2;
+
+export const TABLET_SCREEN = 917;
+export const MOBILE_SCREEN = 480;
