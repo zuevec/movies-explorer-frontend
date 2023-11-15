@@ -48,7 +48,7 @@ const Movies = ({
 
     localStorage.setItem('movieSearch', inputValue);
     localStorage.setItem('shortMovies', shortMovies);
-    console.log(inputValue);
+
 
     if (isAllMovies.length === 0) {
       onLoading(true);

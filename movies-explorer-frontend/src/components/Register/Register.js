@@ -5,16 +5,12 @@ import logo from '../../images/logo.svg';
 import useForm from '../../hooks/useForm';
 
 const Register = ({ onRegister, userMessageError }) => {
-  const { enteredValues, errors, handleChange, isValid } = useForm();
-  const [isShown, setIsShown] = useState(true);
-  const clickRegButton = () => setIsShown(!isShown);
-
-console.log(isValid)
+  const { enteredValues, errors, handleChange, resetForm, isValid } = useForm();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     onRegister(enteredValues);
-    setIsShown(true);
+    resetForm();
   };
 
   return (
@@ -51,6 +47,7 @@ console.log(isValid)
           id="email"
           name="email"
           required
+          pattern='[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,3}'
           value={enteredValues.email || ''}
           onChange={handleChange}
           placeholder="E-mail"
@@ -72,10 +69,9 @@ console.log(isValid)
         <span className="register__error">{errors.password}</span>
         <span className="register__error">{userMessageError}</span>
         <button
-          onClick={clickRegButton}
           className="register__button"
           type="submit"
-          disabled={!isValid && isShown}
+          disabled={!isValid}
         >
           Зарегистрироваться
         </button>

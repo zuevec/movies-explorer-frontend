@@ -55,6 +55,17 @@ const SavedMovies = ({ loggedIn, savedMovies, isLoading, changeSave }) => {
   };
 
   useEffect(() => {
+    if (localStorage.getItem('shortSavedMovies') === 'true') {
+
+      setShowedMovies(filterShorts(savedMovies));
+    } else {
+
+      const moviesList = filterMovies(savedMovies, searchQuery, shortMovies);
+      setShowedMovies(moviesList);
+    }
+  }, [savedMovies, location, shortMovies]); 
+
+  useEffect(() => {
     setFilteredMovies(savedMovies);
     savedMovies.length !== 0
       ? setUserMessage('')

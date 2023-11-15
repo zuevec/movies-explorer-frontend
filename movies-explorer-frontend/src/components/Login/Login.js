@@ -5,9 +5,9 @@ import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 
 const Login = ({ onLogin, userMessageError }) => {
-  const { enteredValues, errors, handleChange, isValid } = useForm();
-  const [isShown, setIsShown] = useState(true);
-  const clickRegButton = () => setIsShown(!isShown);
+  const { enteredValues, errors, handleChange, resetForm, isValid } = useForm();
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,7 +15,7 @@ const Login = ({ onLogin, userMessageError }) => {
       return;
     }
     onLogin(enteredValues);
-    setIsShown(true);
+    resetForm();
   };
   return (
     <div className="login__container">
@@ -35,6 +35,7 @@ const Login = ({ onLogin, userMessageError }) => {
           id="email"
           name="email"
           required
+          pattern='[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,3}'
           value={enteredValues.email || ''}
           onChange={handleChange}
           placeholder="email"
@@ -57,9 +58,9 @@ const Login = ({ onLogin, userMessageError }) => {
         <span className="login__error">{userMessageError}</span>
         <button
           className="login__button"
-          onClick={clickRegButton}
+
           type="submit"
-          disabled={!isValid && isShown}
+          disabled={!isValid}
         >
           Войти
         </button>

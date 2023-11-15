@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -34,12 +34,14 @@ function App() {
 
   /* Пользователь */
 
-  const handleTokenCheck = useCallback(() => {
-    const path = location.pathname;
-    const jwt = localStorage.getItem('jwt');
+  const handleTokenCheck = () => {
+    if(isLoggedIn) {
+     const path = location.pathname;
+     const jwt = localStorage.getItem('jwt'); 
     getUserInfo(jwt)
       .then((data) => {
         setIsLoggedIn(true);
+        setCurrentUser(data);
         setUserMessageError('');
         navigate(path);
       })
@@ -49,7 +51,7 @@ function App() {
         setSavedMovies(movies);
       })
       .catch((err) => console.log(err));
-  }, [location, navigate]);
+  }};
 
   useEffect(() => {
     handleTokenCheck();

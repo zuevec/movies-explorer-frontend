@@ -16,7 +16,7 @@ const Profile = ({
 
   const currentUser = useContext(CurrentUserContext);
   const { enteredValues, handleChange, resetForm, errors, isValid } = useForm();
-
+ 
   let wrong =
     !isValid ||
     (currentUser.name === enteredValues.name &&
@@ -35,6 +35,8 @@ const Profile = ({
   useEffect(() => {
     currentUser ? resetForm(currentUser) : resetForm();
   }, [currentUser, resetForm]);
+
+
 
   return (
     <>
@@ -65,6 +67,7 @@ const Profile = ({
               onInput={handleChange}
               className="profile__input"
               required
+              pattern='[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,3}'
               disabled={isShown}
               placeholder="pochta@yandex.ru"
             />
