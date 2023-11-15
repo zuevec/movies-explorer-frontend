@@ -7,7 +7,7 @@ const useForm = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    const useemailRegEForm = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const useemailRegEForm = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
     setEnteredValues({
       ...enteredValues,
@@ -20,6 +20,8 @@ const useForm = () => {
           ...errors,
           [name]: 'Не валидный email',
         });
+
+        return setIsValid(false)
       } else {
         setErrors({
           ...errors,
@@ -34,6 +36,7 @@ const useForm = () => {
     }
 
     setIsValid(event.target.closest('.form').checkValidity());
+    console.log(isValid)
   };
 
   const resetForm = useCallback(

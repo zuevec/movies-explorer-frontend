@@ -9,6 +9,8 @@ const Register = ({ onRegister, userMessageError }) => {
   const [isShown, setIsShown] = useState(true);
   const clickRegButton = () => setIsShown(!isShown);
 
+console.log(isValid)
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onRegister(enteredValues);
